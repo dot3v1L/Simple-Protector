@@ -31,7 +31,10 @@ namespace Simple_Protect
             TypeDefinition mytype = null;
             foreach (TypeDefinition t in assembly.MainModule.Types)
             {
-                t.Name = RandomEng(12);
+                if (t.Name != "<Module>")
+                {
+                    t.Name = RandomMix(12);
+                }
             }
         }
 
@@ -45,7 +48,7 @@ namespace Simple_Protect
                 {
                     if (t.Name != "<Module>")
                     {
-                        m.Name = RandomEng(12);
+                        m.Name = RandomMix(12);
                     }
                 }
             }
